@@ -3,7 +3,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Provas', {
       id: {
-        allowNull: false,
+        // allowNull: false,
         primaryKey: true,
         autoIncrement: true,
         type: Sequelize.INTEGER.UNSIGNED

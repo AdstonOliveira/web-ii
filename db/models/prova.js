@@ -6,12 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     id: { type: DataTypes.STRING, primaryKey: true, allowNull: false, autoIncrement: true },
     disciplina: { type: DataTypes.STRING, allowNull: false, validate: { notEmpty: true } },
     professor: { type: DataTypes.STRING, allowNull: false, validate: { notEmpty: true } },
-    dataProva: { type: DataTypes.DATEONLY, allowNull: false, validate: { isAfter: new Date().toISOString() } },
+    dataProva: { type: DataTypes.DATEONLY, allowNull: false, validate: { isAfter: new Date().toString() } },
     dataProvaLocal: {
       type: DataTypes.VIRTUAL,
       get() {
         let date = moment(this.getDataValue('dataProva'));
-        return date.format('DD/MM/YYYY');
+        return date;
       }
     }
   }, {});
